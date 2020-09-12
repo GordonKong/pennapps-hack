@@ -1,0 +1,16 @@
+[{
+  "value" : "mask",
+  "name" : "Face Masks"
+},
+{
+  "value" : "sanitizer",
+  "name" : "Hand Sanitizer"
+},
+{
+  "value" : "disinfectant",
+  "name" : "Disinfectant Wipes"
+},
+{
+  "value" : "gaming",
+  "name" : "Gaming"
+}]

@@ -1,1 +1,24 @@
-<h1>Hello World</h1>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h1 class="text-center mt-3">Covid-19 Item Price Guide</h1>
+
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="input-group">
+        <select class= "selectpicker mt-5 form-control" data-live-search="true" name="product" id="product">
+          <option selected disabled>Find your Product</option>
+          {% for item in itemList %}
+            <option value="{{ item['value'] }}">{{ item['name'] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </div>
+  </form>
+
+
+
+
+</div>
+{% endblock %}
