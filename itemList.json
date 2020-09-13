@@ -1,9 +1,9 @@
 [{
-  "value" : "mask",
+  "value" : "facemasks",
   "name" : "Face Masks"
 },
 {
-  "value" : "sanitizer",
+  "value" : "sanitizers",
   "name" : "Hand Sanitizer"
 },
 {

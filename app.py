@@ -28,7 +28,7 @@ def about():
     return render_template("about.html")
     
 
-@app.route("/gitdata/<category>")
+@app.route("/<category>")
 def gitdata(category):
     results = mongo.db.facemasks.find({"item": category},{"_id":0}).limit(50)
     return render_template("item.html", items = [x for x in results], averages = average)

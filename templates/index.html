@@ -13,10 +13,26 @@
           {% endfor %}
         </select>
       </div>
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      <button type="button" onclick= "foo();" class="btn btn-primary mt-3">Submit</button>
     </div>
   </form>
+  <script>
+    function foo(){
+      var e = document.getElementById("product");
+      var strUser = e.options[e.selectedIndex].value;
+      console.log(strUser);
+      window.location.href = '/'+strUser;
+    }
+     /* var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/'+strUser, true);
 
+      xhr.onload = function () {
+          
+      };
+
+      xhr.send(null);
+      } */
+  </script>
 
 
 
