@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-<img src="../About-img.jpg">
+<div class="d-flex justify-content-center">
+  <img src="{{ url_for('static', filename='uploads/' + 'About-img.jpg') }}">
+</div>
 
 
 {% endblock %}
