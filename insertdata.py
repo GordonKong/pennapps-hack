@@ -21,7 +21,7 @@ def parse_amazondata(data):
                 value += j["name"]
             _data = {}
             _data["store"] = "amazon"
-            _data["item"] = "sanitizers"
+            _data["item"] = "facemasks"
             _data["image"] = i["image"]
             _data["url"] = i["url"]
             _data["label"] = i["label"]
@@ -41,7 +41,7 @@ def parse_walmartdata(data):
                 value += j["name"]
             _data = {}
             _data["store"] = "walmart"
-            _data["item"] = "sanitizers"
+            _data["item"] = "facemasks"
             _data["image"] = i["image"]
             _data["url"] = i["url"]
             _data["label"] = i["label"]
@@ -56,7 +56,7 @@ def parse_ebaydata(data):
     for i in data["image"]:
         _data = {}
         _data["store"] = "ebay"
-        _data["item"] = "sanitizers"
+        _data["item"] = "facemasks"
         _data["image"] = i["image"]
         _data["url"] = i["url"]
         _data["label"] = i["label"]
