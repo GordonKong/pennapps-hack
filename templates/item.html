@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h1 class="text-center mt-3">Covid-19 Item Price Guide</h1>
+
+
+<div class = "row">
+  {% for item in items %}
+  <div class = "col-md-3">
+      <div class="card">
+  <img class="card-img-top" src="{{item['image']}}" alt="Card image cap" style= "height: 100px; width: 100px" >
+  <div class="card-body">
+    <h5 class="card-title"> {{item['label']}} </h5>
+    <p class="card-text"> Price: {{item['value']}}.</p>
+    <a href="{{item['url']}}" class="btn btn-primary"> Buy</a>
+      <p>
+      Average Product Price: ${{averages[item["item"]]|round(2)}}
+      {% set savings = ((averages[item["item"]])-(item['value'][1:]|float)) %}
+      {% if savings < 0 %}
+      <span style= "color: red"> Savings: ${{savings|round(2)}}</span>
+      {% else %}
+      <span style = "color: blue"> Savings: ${{savings|round(2)}}</span>
+      {% endif %}
+      </p>
+    
+  </div>
+</div>
+
+  </div>
+  {% endfor %}
+</div>
+  
+  
+</div>
+{% endblock %}
