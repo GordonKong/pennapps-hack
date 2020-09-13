@@ -10,7 +10,7 @@ data = json.load(f)
 
 client = pymongo.MongoClient('mongodb+srv://pennapps:.@cluster0.cpkso.mongodb.net/pennapps?retryWrites=true&w=majority')
 db = client.pennapps
-collection = db.facemasks
+collection = db.cat
 
 def parse_amazondata(data):
     for i in data["image"]:
@@ -21,11 +21,14 @@ def parse_amazondata(data):
                 value += j["name"]
             _data = {}
             _data["store"] = "amazon"
-            _data["item"] = "facemasks"
+            _data["item"] = "sanitizers"
             _data["image"] = i["image"]
             _data["url"] = i["url"]
             _data["label"] = i["label"]
-            _data["value"] = value
+            try:
+                _data["value"] = float(value.replace("$", ""))
+            except:
+                _data["value"] = 0
             post_id = collection.insert_one(_data).inserted_id
             post_id
             
@@ -38,11 +41,14 @@ def parse_walmartdata(data):
                 value += j["name"]
             _data = {}
             _data["store"] = "walmart"
-            _data["item"] = "facemasks"
+            _data["item"] = "sanitizers"
             _data["image"] = i["image"]
             _data["url"] = i["url"]
             _data["label"] = i["label"]
-            _data["value"] = value
+            try:
+                _data["value"] = float(value.replace("$", ""))
+            except:
+                _data["value"] = 0
             post_id = collection.insert_one(_data).inserted_id
             post_id
             
@@ -50,11 +56,14 @@ def parse_ebaydata(data):
     for i in data["image"]:
         _data = {}
         _data["store"] = "ebay"
-        _data["item"] = "facemasks"
+        _data["item"] = "sanitizers"
         _data["image"] = i["image"]
         _data["url"] = i["url"]
         _data["label"] = i["label"]
-        _data["value"] = i["amount"]
+        try:
+            _data["value"] = float(i["amount"].replace("$", ""))
+        except:
+            _data["value"] = 0
         post_id = collection.insert_one(_data).inserted_id
         post_id
             
